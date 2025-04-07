@@ -1,9 +1,12 @@
 name: Deploy Astro Portfolio to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main  # or your default branch
+  workflow_dispatch: {}
+  
+# on:
+#   push:
+#     branches:
+#       - main  # or your default branch
 
 jobs:
   deploy:
