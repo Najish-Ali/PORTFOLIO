@@ -20,21 +20,21 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Install Astro GitHub Adapter
-        run: npm install @astrojs/github
+      # - name: Install Astro GitHub Adapter
+      #   run: npm install @astrojs/github
 
-      - name: Patch astro.config.mjs for GitHub Pages
-        run: |
-          echo "🔧 Patching astro.config.mjs..."
-          echo 'import { defineConfig } from "astro/config";' > astro.config.mjs
-          echo 'import github from "@astrojs/github";' >> astro.config.mjs
-          echo '' >> astro.config.mjs
-          echo 'export default defineConfig({' >> astro.config.mjs
-          echo '  output: "static",' >> astro.config.mjs
-          echo '  adapter: github(),' >> astro.config.mjs
-          echo '});' >> astro.config.mjs
+      # - name: Patch astro.config.mjs for GitHub Pages
+      #   run: |
+      #     echo "🔧 Patching astro.config.mjs..."
+      #     echo 'import { defineConfig } from "astro/config";' > astro.config.mjs
+      #     echo 'import github from "@astrojs/github";' >> astro.config.mjs
+      #     echo '' >> astro.config.mjs
+      #     echo 'export default defineConfig({' >> astro.config.mjs
+      #     echo '  output: "static",' >> astro.config.mjs
+      #     echo '  adapter: github(),' >> astro.config.mjs
+      #     echo '});' >> astro.config.mjs
 
       - name: Build Astro site
         run: npm run build
