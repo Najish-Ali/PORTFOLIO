@@ -10,14 +10,29 @@ const { title = "Your Name - DevOps Engineer" } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <meta name="description" content="DevOps Engineer Portfolio - Automation, Cloud Computing, and CI/CD specialist" />
+    <meta name="author" content="Sayyed Najish Ali" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="DevOps Engineer Portfolio - Automation, Cloud Computing, and CI/CD specialist" />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:url" content="https://yourportfolio.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@yourhandle" />
+    
+    <!-- External Styles -->
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/bold/style.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" is:inline></script>
+    
+    <title>{title}</title>
   </head>
   <body>
     <slot />
@@ -36,10 +51,12 @@ const { title = "Your Name - DevOps Engineer" } = Astro.props;
     --accent: 62, 69, 255;
     --gradient-start: #3245ff;
     --gradient-end: #bc52ee;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
   }
   
   html {
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-primary);
     background: #f6f6f6;
     scroll-behavior: smooth;
   }
@@ -48,6 +65,9 @@ const { title = "Your Name - DevOps Engineer" } = Astro.props;
     margin: 0;
     padding: 0;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-primary);
   }
 
   code {
@@ -69,5 +89,145 @@ const { title = "Your Name - DevOps Engineer" } = Astro.props;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    color: #2d2d2d;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--gradient-start);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+    color: #555;
+  }
+
+  a {
+    color: var(--gradient-start);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--gradient-end);
+  }
+
+  .gradient-text {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* General Styling for Box and Interactive Elements */
+  .box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(to right, rgba(50, 69, 255, 0.7), rgba(188, 82, 238, 0.7)),
+                url('/images/hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+    padding: 4rem;
+  }
+
+  .hero h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Buttons */
+  .cta-buttons a {
+    padding: 1rem 2rem;
+    background: var(--gradient-start);
+    color: white;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  .cta-buttons a:hover {
+    background: var(--gradient-end);
+    transform: scale(1.05);
+  }
+
+  /* Global Containers */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* AOS Animations */
+  .aos-animate {
+    animation-duration: 0.8s;
+    animation-delay: 0.3s;
+    animation-timing-function: ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .cta-buttons a {
+      padding: 0.8rem 1.6rem;
+      font-size: 1rem;
+    }
   }
 </style>
