@@ -20,25 +20,14 @@ import Contact from '../components/Contact.astro';
           </div>
         </div>
       </nav>
-
       <div class="hero">
         <div class="hero-content" data-aos="fade-up">
           <div class="hero-image">
-            <img src="https://github.com/Anmol-Baranwal/Cool-GIFs-For-GitHub/assets/74038190/127d79d7-e59d-4aa8-bd18-63b89c666d95" alt="Developer Animation" class="dev-animation">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968866.png" alt="DevOps Logo" class="dev-animation">
           </div>
           <h1>SAYYED NAJISH ALI</h1>
           <p class="subtitle gradient-text">DevOps Engineer | Cloud Enthusiast</p>
           <p class="description">Passionate about automating and optimizing infrastructure</p>
-
-          <div class="tech-stack">
-            <img src="https://media.giphy.com/media/UVG0BN8TOMKkPOJS6e/giphy.gif" alt="DevOps Lifecycle" class="tech-animation" />
-          </div>
-
-          <div class="social-links">
-            <a href="mailto:sayyednajishali@gmail.com" target="_blank">📧</a>
-            <a href="https://github.com/Najish-Ali" target="_blank">🐱</a>
-            <a href="https://www.linkedin.com/in/sayyed-najish-ali-7b09a0257" target="_blank">💼</a>
-          </div>
 
           <div class="cta-buttons">
             <a href="#contact" class="primary-button">Get in touch</a>
@@ -48,20 +37,12 @@ import Contact from '../components/Contact.astro';
         <div class="hero-background"></div>
       </div>
     </header>
-
+    
     <div class="container">
-      <div data-aos="fade-up" id="contact">
-        <Contact />
-      </div>
-      <div data-aos="fade-up" id="about">
-        <About />
-      </div>
-      <div data-aos="fade-up" id="skills">
-        <Skills />
-      </div>
-      <div data-aos="fade-up" id="projects">
-        <Projects />
-      </div>
+      <div data-aos="fade-up"><About /></div>
+      <div data-aos="fade-up"><Skills /></div>
+      <div data-aos="fade-up"><Projects /></div>
+      <div id="contact" data-aos="fade-up"><Contact /></div>
     </div>
   </main>
 </Layout>
@@ -142,36 +123,9 @@ import Contact from '../components/Contact.astro';
   }
 
   .dev-animation {
-    width: 240px;
+    width: 150px;
     height: auto;
     border-radius: 10px;
-  }
-
-  .tech-stack {
-    margin: 2rem 0;
-  }
-
-  .tech-animation {
-    width: 200px;
-    height: auto;
-    border-radius: 8px;
-  }
-
-  .social-links {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .social-links a {
-    text-decoration: none;
-    color: #333;
-  }
-
-  .social-links a:hover {
-    color: #4f46e5;
   }
 
   .hero-background {
@@ -180,8 +134,9 @@ import Contact from '../components/Contact.astro';
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 30%, rgba(50, 69, 255, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(188, 82, 238, 0.1) 0%, transparent 40%);
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(50, 69, 255, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(188, 82, 238, 0.1) 0%, transparent 40%);
     z-index: 0;
   }
 
@@ -220,15 +175,15 @@ import Contact from '../components/Contact.astro';
   }
 
   .primary-button {
-    background: linear-gradient(to right, #3b82f6, #6366f1);
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
     color: white;
     box-shadow: 0 4px 6px -1px rgba(50, 69, 255, 0.2);
   }
 
   .secondary-button {
     background: white;
-    color: #3b82f6;
-    border: 2px solid #3b82f6;
+    color: var(--gradient-start);
+    border: 2px solid var(--gradient-start);
   }
 
   .primary-button:hover, .secondary-button:hover {
@@ -259,8 +214,8 @@ import Contact from '../components/Contact.astro';
       padding: 1rem;
     }
 
-    .dev-animation, .tech-animation {
-      width: 180px;
+    .dev-animation {
+      width: 120px;
     }
   }
 </style>
