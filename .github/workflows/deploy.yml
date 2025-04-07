@@ -1,12 +1,10 @@
 name: Deploy Astro Portfolio to GitHub Pages
 
-on:
+on: 
   workflow_dispatch: {}
-  
-# on:
-#   push:
-#     branches:
-#       - main  # or your default branch
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   deploy:
@@ -24,7 +22,21 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build the site
+      - name: Install Astro GitHub Adapter
+        run: npm install @astrojs/github
+
+      - name: Patch astro.config.mjs for GitHub Pages
+        run: |
+          echo "🔧 Patching astro.config.mjs..."
+          echo 'import { defineConfig } from "astro/config";' > astro.config.mjs
+          echo 'import github from "@astrojs/github";' >> astro.config.mjs
+          echo '' >> astro.config.mjs
+          echo 'export default defineConfig({' >> astro.config.mjs
+          echo '  output: "static",' >> astro.config.mjs
+          echo '  adapter: github(),' >> astro.config.mjs
+          echo '});' >> astro.config.mjs
+
+      - name: Build Astro site
         run: npm run build
 
       - name: Deploy to GitHub Pages 🚀
@@ -32,4 +44,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-
