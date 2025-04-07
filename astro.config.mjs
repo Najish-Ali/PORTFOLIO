@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  output: 'static', // Required for GitHub Pages deployment
+  base: "/PORTFOLIO/",
+  // output: 'static', // Required for GitHub Pages deployment
 });
