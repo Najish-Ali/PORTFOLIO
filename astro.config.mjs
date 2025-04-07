@@ -2,5 +2,5 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  output: 'static', // default behavior
+  output: 'static', // optional, default is static
 });
