@@ -1,0 +1,103 @@
+---
+const skills = [
+  { 
+    name: 'AWS, Azure, Google Cloud',
+    category: 'Cloud',
+    icons: ['ph-cloud-bold', 'ph-cloud-arrow-up-bold', 'ph-cloud-check-bold']
+  },
+  { 
+    name: 'Docker, Kubernetes',
+    category: 'Containers',
+    icons: ['ph-cube-bold', 'ph-cubes-bold']
+  },
+  { 
+    name: 'Jenkins, GitLab CI',
+    category: 'CI/CD',
+    icons: ['ph-git-branch-bold', 'ph-git-commit-bold']
+  },
+  { 
+    name: 'Terraform, Ansible',
+    category: 'IaC',
+    icons: ['ph-code-bold', 'ph-file-code-bold']
+  },
+  { 
+    name: 'Linux, Bash, Python',
+    category: 'DevOps',
+    icons: ['ph-terminal-bold', 'ph-terminal-window-bold', 'ph-code-bold']
+  }
+];
+---
+<section id="skills" class="box">
+  <h2>Skills & Technologies</h2>
+  <div class="skills-grid">
+    {skills.map(skill => (
+      <div class="skill-item">
+        <div class="skill-icons">
+          {skill.icons.map(icon => (
+            <i class={icon}></i>
+          ))}
+        </div>
+        <span class="skill-name">{skill.name}</span>
+        <span class="skill-category">{skill.category}</span>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .skill-item {
+    padding: 1.5rem;
+    background: linear-gradient(83.21deg, #3245ff10 0%, #bc52ee10 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .skill-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .skill-icons {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    color: #3245ff;
+  }
+
+  .skill-name {
+    color: #111827;
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  .skill-category {
+    color: #6b7280;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>

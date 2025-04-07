@@ -1,0 +1,97 @@
+---
+const contacts = [
+  { 
+    platform: 'Email',
+    link: 'mailto:yourname@example.com',
+    value: 'yourname@example.com',
+    icon: 'ph-envelope-simple'
+  },
+  { 
+    platform: 'GitHub',
+    link: 'https://github.com/yourusername',
+    value: 'github.com/yourusername',
+    icon: 'ph-github-logo'
+  },
+  { 
+    platform: 'LinkedIn',
+    link: 'https://linkedin.com/in/yourname',
+    value: 'linkedin.com/in/yourname',
+    icon: 'ph-linkedin-logo'
+  }
+];
+---
+<section id="contact" class="box">
+  <h2>Contact</h2>
+  <div class="contact-grid">
+    {contacts.map(contact => (
+      <a href={contact.link} class="contact-item" target="_blank" rel="noopener noreferrer">
+        <i class={contact.icon}></i>
+        <div class="contact-info">
+          <span class="platform">{contact.platform}</span>
+          <span class="value">{contact.value}</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  section {
+    padding: 2rem;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: #111827;
+    font-size: 1.875rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-grid {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: linear-gradient(83.21deg, #3245ff10 0%, #bc52ee10 100%);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-item:hover {
+    background: linear-gradient(83.21deg, #3245ff20 0%, #bc52ee20 100%);
+    transform: translateX(4px);
+  }
+
+  .contact-item i {
+    font-size: 1.5rem;
+    color: #3245ff;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .platform {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .value {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+</style>
